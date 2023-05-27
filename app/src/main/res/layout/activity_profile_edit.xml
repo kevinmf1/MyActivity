@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:text="@string/profile_title_edit"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/settingBackBtn"
             app:layout_constraintEnd_toEndOf="@+id/profile_image"

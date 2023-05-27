@@ -145,7 +145,7 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginEnd="16dp"
                     android:layout_weight="1"
-                    android:background="@drawable/background_imageview_choose"
+                    android:background="@drawable/background_imageview"
                     android:contentDescription="@string/profile_gender_picture_preview_content_description"
                     android:padding="10dp"
                     android:src="@drawable/man_pic3" />

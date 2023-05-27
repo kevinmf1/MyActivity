@@ -1,4 +1,4 @@
-# MyActivity : Stay on Track with My Activity: Your Daily Productivity Companion 
+# MyActivity : Stay on Track with My Activity Because It's Your Daily Productivity Companion 
 
 ### App Preview/Tampilan Aplikasi
 

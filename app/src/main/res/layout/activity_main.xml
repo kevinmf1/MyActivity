@@ -5,17 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="10dp"
-    tools:context=".MainActivity">
+    android:background="@color/white"
+    tools:context=".ui.activity.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNote"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:listitem="@layout/item_note" />
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:context=".ui.activity.MainActivity">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:contentDescription="@string/tabLayout_content_description"
+            app:tabMode="scrollable"
+            app:tabTextColor="@color/black" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnTambah"
@@ -24,41 +42,115 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:contentDescription="ini adalah tombol untuk menambah data"
-        app:backgroundTint="#6C9BCF"
+        android:contentDescription="@string/add_icon_content_description"
+        android:focusable="true"
+        app:backgroundTint="@color/btnLightModeColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_add_white_24"
         app:tint="#FFFFFF" />
 
     <TextView
-        android:id="@+id/tvEmptyActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Yahh tidak ada data :("
-        android:textColor="#000000"
-        android:textSize="17sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
+        android:id="@+id/greetingMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Hello, Kevin!"
-        android:textColor="#000000"
+        tools:text="@string/name_main_title"
+        android:textColor="@color/mainGreetingTitle"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profile_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/warmMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/desc_main_subtitle"
+        android:textColor="@color/black_70percent"
+        app:layout_constraintStart_toStartOf="@+id/greetingMessage"
+        app:layout_constraintTop_toBottomOf="@+id/greetingMessage" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        tools:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="@+id/greetingMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/greetingMessage" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rectangle"
+        app:layout_constraintEnd_toEndOf="@+id/profile_image"
+        app:layout_constraintStart_toStartOf="@+id/warmMessage"
+        app:layout_constraintTop_toBottomOf="@+id/warmMessage">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/percentageBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/percentageBar"
+            app:layout_constraintTop_toTopOf="@+id/percentageBar">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/DayActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/today_rectangle_stats"
+                android:textColor="@color/white_total" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/DescDayActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/today_detailed_uncompleted_stats"
+                android:textColor="@color/white_total" />
+
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/percentageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="76%"
+            android:textColor="@color/white_total"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="@+id/percentageBar"
+            app:layout_constraintEnd_toEndOf="@+id/percentageBar"
+            app:layout_constraintStart_toStartOf="@+id/percentageBar"
+            app:layout_constraintTop_toTopOf="@+id/percentageBar" />
+
+        <ProgressBar
+            android:id="@+id/percentageBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="76" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        tools:context=".ui.activity.AddEditActivity">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnClose"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/baseline_close_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/addEditTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/activity_add_title"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/btnClose"
+            app:layout_constraintEnd_toStartOf="@+id/btnDeleteActivity"
+            app:layout_constraintStart_toEndOf="@+id/btnClose"
+            app:layout_constraintTop_toTopOf="@+id/btnClose" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/activityNameTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/activity_name"
+            android:textColor="@color/black"
+            app:fontFamily="sans-serif-medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnClose" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/btnLightModeColor"
+            android:text="@string/submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchDoneOrNot" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dateActivity"
+            style="@style/MyTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            app:layout_constraintEnd_toEndOf="@+id/activityNameTitle"
+            app:layout_constraintStart_toStartOf="@+id/activityNameTitle"
+            app:layout_constraintTop_toBottomOf="@+id/dateActivityTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dateActivityField"
+                style="@style/MyTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/date_activity_hint"
+                android:inputType="textNoSuggestions" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/startToEndTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/dateActivity"
+            app:layout_constraintStart_toStartOf="@+id/dateActivity"
+            app:layout_constraintTop_toBottomOf="@id/dateActivity">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/MyTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:expandedHintEnabled="false"
+                app:hintTextAppearance="@style/text_in_layout_hint_Style"
+                app:startIconDrawable="@drawable/baseline_access_time_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/startTimeField"
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/start_time_hint"
+                    android:inputType="time" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/strip" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/MyTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:expandedHintEnabled="false"
+                app:hintTextAppearance="@style/text_in_layout_hint_Style"
+                app:startIconDrawable="@drawable/baseline_access_time_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/endTimeField"
+                    style="@style/MyTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/end_time_hint"
+                    android:inputType="time" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activityName"
+            style="@style/MyTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            app:layout_constraintEnd_toEndOf="@+id/activityNameTitle"
+            app:layout_constraintStart_toStartOf="@+id/activityNameTitle"
+            app:layout_constraintTop_toBottomOf="@+id/activityNameTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/activityNameField"
+                style="@style/MyTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name_activity_hint"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/dateActivityTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/date_activity"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/activityName"
+            app:layout_constraintStart_toStartOf="@+id/activityName"
+            app:layout_constraintTop_toBottomOf="@+id/activityName" />
+
+        <TextView
+            android:id="@+id/descriptionActivityTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/description_activity"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/dateActivityTitle"
+            app:layout_constraintStart_toStartOf="@+id/dateActivityTitle"
+            app:layout_constraintTop_toBottomOf="@+id/startToEndTime" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/descriptionActivity"
+            style="@style/MyTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            app:layout_constraintEnd_toEndOf="@+id/descriptionActivityTitle"
+            app:layout_constraintStart_toStartOf="@+id/descriptionActivityTitle"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionActivityTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descriptionActivityField"
+                style="@style/MyTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/description_activity_hint"
+                android:inputType="textMultiLine" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchDoneOrNot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/descriptionActivity"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionActivity"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/switchDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/already_done"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/switchDoneOrNot"
+            app:layout_constraintStart_toStartOf="@+id/descriptionActivity"
+            app:layout_constraintTop_toTopOf="@+id/switchDoneOrNot"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/btnDeleteActivity"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/delete_icon_content_description"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/btnClose"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnClose"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/baseline_delete_24"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

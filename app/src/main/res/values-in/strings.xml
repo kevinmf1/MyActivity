@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Activity</string>
+    <string name="empty_data">Ups, tidak ada data yang ditampilkan :(</string>
+    <string name="today_activity">Hari Ini</string>
+    <string name="upcoming_activity">Mendatang</string>
+    <string name="late_activity">Terlambat</string>
+    <string name="completed_activity">Selesai</string>
+
+    <string name="activity_add_title">Tambahkan aktivitas baru</string>
+    <string name="activity_edit_title">Edit aktivitas</string>
+    <string name="activity_done_title">Aktivitas selesai</string>
+
+    <string name="activity_name">Nama Aktivitas</string>
+    <string name="date_activity">Tanggal Aktivitas</string>
+    <string name="description_activity">Deskripsi Aktivitas</string>
+    <string name="already_done">Sudah Selesai?</string>
+
+    <!--  Add Edit Activity  -->
+    <string name="required_title">Nama aktivitas tidak boleh kosong</string>
+    <string name="required_date">Tanggal tidak boleh kosong</string>
+    <string name="required_start_time">Waktu mulai tidak boleh kosong</string>
+    <string name="required_end_time">Waktu selesai tidak boleh kosong</string>
+    <string name="required_end_time_greater">Waktu selesai harus lebih besar dari waktu mulai</string>
+    <string name="required_description">Deskripsi tidak boleh kosong</string>
+
+    <string name="name_activity_hint">Nama</string>
+    <string name="date_activity_hint">Tanggal</string>
+    <string name="start_time_hint">Waktu Mulai</string>
+    <string name="end_time_hint">Waktu Selesai</string>
+    <string name="description_activity_hint">Deskripsi</string>
+
+    <string name="submit">Submit</string>
+    <string name="strip">-</string>
+
+    <string name="delete_icon_content_description">Untuk menghapus item</string>
+    <string name="tabLayout_content_description">Navigasi dari satu tab ke tab lainnya</string>
+    <string name="add_icon_content_description">Untuk menambahkan item</string>
+    <string name="late_icon_content_description">Jika Anda terlambat, ikon terlambat akan ditampilkan</string>
+    <string name="done_icon_content_description">Jika Anda selesai, ikon ini akan ditampilkan</string>
+    <string name="date_icon_content_description">Menampilkan batas waktu dari aktivitas Anda</string>
+    <string name="back_icon_content_description">Untuk kembali ke halaman sebelumnya</string>
+    <string name="edit_icon_content_description">Untuk mengedit item</string>
+    <string name="splash_icon_content_description">Untuk tampilan awal</string>
+    <string name="profile_gender_picture_preview_content_description">Untuk preview dari foto profile dari setiap gender</string>
+    <string name="save_icon_content_description">Untuk menyimpan item</string>
+
+    <string name="name_main_title">Halo, %1$s!</string>
+    <string name="desc_main_subtitle">Tetap semangat, teruslah melakukannya!</string>
+
+    <!--  Box Main  -->
+    <string name="today_rectangle_stats">Hari Ini</string>
+    <string name="late_rectangle_stats">Terlambat</string>
+    <string name="completed_rectangle_stats">Selesai</string>
+    <string name="upcoming_rectangle_stats">Mendatang</string>
+    <string name="percentage_stats">%1$d%%</string>
+    <string name="today_detailed_uncompleted_stats">Anda memiliki %1$d tugas tersisa dari %2$d tugas yang harus dilakukan.</string>
+    <string name="today_detailed_completed_stats">Anda telah menyelesaikan %1$d tugas</string>
+    <string name="today_detailed_completed_all_stats">Anda telah menyelesaikan semua %1$d tugas</string>
+    <string name="today_detailed_late_stats">Anda harus menyelesaikan %1$d tugas.</string>
+    <string name="today_noTask_stats">Anda tidak memiliki tugas untuk dilakukan</string>
+    <string name="today_noTask_completed_stats">Anda tidak memiliki tugas yang selesai</string>
+    <string name="today_noTask_late_stats">Anda tidak memiliki tugas yang terlambat</string>
+
+    <string name="activity_detail_id">Id Aktivitas</string>
+    <string name="activity_detail_name">Nama Aktivitas</string>
+    <string name="activity_detail_date">Tanggal Aktivitas</string>
+    <string name="activity_detail_duration">Durasi Aktivitas</string>
+    <string name="activity_detail_description">Deskripsi Aktivitas</string>
+    <string name="activity_detail_status">Status</string>
+
+    <string name="activity_status_completed">Aktivitas selesai</string>
+    <string name="activity_status_uncompleted">Aktivitas belum selesai</string>
+
+    <!--  Pop Up Confirmation  -->
+    <string name="confirmation_activity_title">Konfirmasi</string>
+    <string name="delete_activity_negative_button">Tidak</string>
+    <string name="delete_activity_message">Apakah Anda yakin ingin menghapus aktivitas ini?</string>
+    <string name="delete_activity_positive_button">Ya</string>
+    <string name="delete_activity_success_message">Aktivitas telah dihapus</string>
+    <string name="activity_success_done_message">Aktivitas telah selesai</string>
+    <string name="activity_success_edit_message">Data aktivitas berhasil diubah</string>
+    <string name="activity_success_add_message">Aktivitas berhasil ditambahkan</string>
+
+    <!--  Settings Profile   -->
+    <string name="profile_title">Pengaturan Profil</string>
+    <string name="profile_btnEdit">Edit</string>
+    <string name="profile_changeLanguageBtn">Ubah</string>
+    <string name="profile_changeProfileTitle">Ubah profil</string>
+    <string name="profile_changeProfileSubtitle">Edit profil Anda</string>
+    <string name="profile_changeLanguageTitle">Pengaturan Bahasa</string>
+    <string name="profile_changeLanguageSubtitle">Ubah bahasa aplikasi</string>
+    <string name="profile_changeModeBtnTitle">Pengaturan mode</string>
+    <string name="profile_changeModeBtnSubtitle">Aktifkan mode malam</string>
+
+    <!--  Profile Edit  -->
+    <string name="profile_title_edit">Edit profil Anda</string>
+    <string name="profile_subtitle_edit">Detail Dasar</string>
+    <string name="profile_name_title">Nama Lengkap</string>
+    <string name="profile_gender_title">Jenis Kelamin</string>
+    <string name="profile_gender_hint">Pilih jenis kelamin Anda</string>
+    <string name="profile_gender_value_man">Pria</string>
+    <string name="profile_gender_value_woman">Wanita</string>
+    <string name="profile_date_birth_title">Tanggal Lahir</string>
+    <string name="profile_date_birth_hint">Tanggal lahir Anda</string>
+    <string name="profile_phone_title">Nomor Telepon</string>
+    <string name="profile_phone_hint">Nomor telepon Anda</string>
+    <string name="profile_address_title">Alamat</string>
+    <string name="profile_address_hint">Alamat Anda</string>
+    <string name="profile_btnSave">Simpan</string>
+    <string name="profile_btnCancel">Batal</string>
+    <string name="profile_success_edit_message">Data profil berhasil diubah</string>
+    <string name="profile_save_message">Apakah Anda yakin ingin menyimpan profil ini?</string>
+
+    <string name="profile_picture_edit_title">Ubah foto anda</string>
+    <string name="profile_picture_save_message">Apakah kamu ingin menyimpan foto ini?</string>
+    <string name="profile_picture_success_edit_message">Foto sukses disimpan</string>
+</resources>

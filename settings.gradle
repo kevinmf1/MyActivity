@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "LatihanRoom"
+rootProject.name = "myactivity"
 include ':app'

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        tools:context=".ui.activity.ProfileEditActivity">
+
+        <ImageView
+            android:id="@+id/editImageIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-8dp"
+            android:background="@drawable/edit_icon_background"
+            android:contentDescription="@string/edit_icon_content_description"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+            app:layout_constraintEnd_toEndOf="@+id/profile_image"
+            app:layout_constraintTop_toTopOf="@+id/profile_image" />
+
+        <ImageView
+            android:id="@+id/settingBackBtn"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/back_icon_content_description"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/profile_title_edit"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/settingBackBtn"
+            app:layout_constraintEnd_toEndOf="@+id/profile_image"
+            app:layout_constraintStart_toStartOf="@+id/profile_image"
+            app:layout_constraintTop_toTopOf="@+id/settingBackBtn" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="32dp"
+            tools:src="@drawable/ic_launcher_background"
+            app:civ_border_color="@color/black"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingBackBtn" />
+
+        <TextView
+            android:id="@+id/DescTitleProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/profile_subtitle_edit"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+        <TextView
+            android:id="@+id/nameTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/profile_name_title"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/DescTitleProfile"
+            app:layout_constraintStart_toStartOf="@+id/DescTitleProfile"
+            app:layout_constraintTop_toBottomOf="@+id/DescTitleProfile" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputProfile"
+            style="@style/MyTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            app:layout_constraintEnd_toEndOf="@+id/nameTitle"
+            app:layout_constraintStart_toStartOf="@+id/nameTitle"
+            app:layout_constraintTop_toBottomOf="@+id/nameTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameInputProfileField"
+                style="@style/MyTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name_activity_hint"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/genderTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/profile_gender_title"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/nameTitle"
+            app:layout_constraintStart_toStartOf="@+id/nameTitle"
+            app:layout_constraintTop_toBottomOf="@+id/nameInputProfile" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/genderInputProfile"
+            style="@style/MyTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:endIconMode="dropdown_menu"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            app:layout_constraintEnd_toEndOf="@+id/genderTitle"
+            app:layout_constraintStart_toStartOf="@+id/genderTitle"
+            app:layout_constraintTop_toBottomOf="@+id/genderTitle">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/genderInputProfileField"
+                style="@style/MyTextInputEditText"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/profile_gender_hint"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/dateBirthTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/profile_date_birth_title"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/DescTitleProfile"
+            app:layout_constraintStart_toStartOf="@+id/DescTitleProfile"
+            app:layout_constraintTop_toBottomOf="@+id/genderInputProfile" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dateBirthInputProfile"
+            style="@style/MyTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            app:layout_constraintEnd_toEndOf="@+id/dateBirthTitle"
+            app:layout_constraintStart_toStartOf="@+id/dateBirthTitle"
+            app:layout_constraintTop_toBottomOf="@+id/dateBirthTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dateBirthInputProfileField"
+                style="@style/MyTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/profile_date_birth_hint"
+                android:focusableInTouchMode="false"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/phoneTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/profile_phone_title"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/DescTitleProfile"
+            app:layout_constraintStart_toStartOf="@+id/DescTitleProfile"
+            app:layout_constraintTop_toBottomOf="@+id/dateBirthInputProfile" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneInputProfile"
+            style="@style/MyTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            app:layout_constraintEnd_toEndOf="@+id/phoneTitle"
+            app:layout_constraintStart_toStartOf="@+id/phoneTitle"
+            app:layout_constraintTop_toBottomOf="@+id/phoneTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneInputProfileField"
+                style="@style/MyTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/profile_phone_hint"
+                android:inputType="number"
+                android:maxLength="13"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/addressTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/profile_address_title"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/DescTitleProfile"
+            app:layout_constraintStart_toStartOf="@+id/DescTitleProfile"
+            app:layout_constraintTop_toBottomOf="@+id/phoneInputProfile" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addressInputProfile"
+            style="@style/MyTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            app:layout_constraintEnd_toEndOf="@+id/addressTitle"
+            app:layout_constraintStart_toStartOf="@+id/addressTitle"
+            app:layout_constraintTop_toBottomOf="@+id/addressTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addressInputProfileField"
+                style="@style/MyTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/profile_address_hint"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/saveBtnProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/btnLightModeColor"
+            android:text="@string/profile_btnSave"
+            app:layout_constraintEnd_toEndOf="@+id/addressInputProfile"
+            app:layout_constraintStart_toStartOf="@+id/addressInputProfile"
+            app:layout_constraintTop_toBottomOf="@+id/addressInputProfile" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

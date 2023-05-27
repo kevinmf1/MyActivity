@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        tools:context=".ui.activity.DetailCompletedActivity">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnCloseDoneActivity"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/baseline_close_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/addEditTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/activity_done_title"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCloseDoneActivity"
+            app:layout_constraintEnd_toStartOf="@+id/btnDeleteActivity"
+            app:layout_constraintStart_toEndOf="@+id/btnCloseDoneActivity"
+            app:layout_constraintTop_toTopOf="@+id/btnCloseDoneActivity" />
+
+        <ImageView
+            android:id="@+id/btnDeleteActivity"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/delete_icon_content_description"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCloseDoneActivity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnCloseDoneActivity"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/baseline_delete_24" />
+
+        <TextView
+            android:id="@+id/tvTitleFinalValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/detailActivityTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleFinal"
+            tools:text="Meeting 1" />
+
+        <TextView
+            android:id="@+id/tvDescValueFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/detailActivityTextColor"
+            app:layout_constraintEnd_toEndOf="@+id/tvDescFinal"
+            app:layout_constraintStart_toStartOf="@+id/tvDescFinal"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescFinal"
+            tools:text="Meeting Bangkit" />
+
+        <TextView
+            android:id="@+id/tvRangeTimeStartValueFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/detailActivityTextColor"
+            app:layout_constraintStart_toStartOf="@+id/tvTitleFinalValue"
+            app:layout_constraintTop_toBottomOf="@+id/tvRangeTimeFinal"
+            tools:text="23:10" />
+
+        <TextView
+            android:id="@+id/tvStripFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/strip"
+            android:textColor="@color/detailActivityTextColor"
+            app:layout_constraintBottom_toBottomOf="@+id/tvRangeTimeStartValueFinal"
+            app:layout_constraintStart_toEndOf="@+id/tvRangeTimeStartValueFinal"
+            app:layout_constraintTop_toTopOf="@+id/tvRangeTimeStartValueFinal" />
+
+        <TextView
+            android:id="@+id/tvRangeTimeEndValueFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/detailActivityTextColor"
+            app:layout_constraintBottom_toBottomOf="@+id/tvStripFinal"
+            app:layout_constraintStart_toEndOf="@+id/tvStripFinal"
+            app:layout_constraintTop_toTopOf="@+id/tvStripFinal"
+            tools:text="23:50" />
+
+        <TextView
+            android:id="@+id/tvTitleFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/activity_detail_name"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleIdValueFinal" />
+
+        <TextView
+            android:id="@+id/tvRangeTimeFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/activity_detail_duration"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitleFinalValue"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvTitleFinalValue"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateValueFinal" />
+
+        <TextView
+            android:id="@+id/tvDescFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/activity_detail_description"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvRangeTimeFinal"
+            app:layout_constraintStart_toStartOf="@+id/tvRangeTimeFinal"
+            app:layout_constraintTop_toBottomOf="@+id/tvRangeTimeEndValueFinal" />
+
+        <TextView
+            android:id="@+id/tvTitleIdFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/activity_detail_id"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCloseDoneActivity" />
+
+        <TextView
+            android:id="@+id/tvTitleIdValueFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/detailActivityTextColor"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitleIdFinal"
+            app:layout_constraintStart_toStartOf="@+id/tvTitleIdFinal"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleIdFinal"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tvStatusFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/activity_detail_status"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvDescValueFinal"
+            app:layout_constraintStart_toStartOf="@+id/tvDescValueFinal"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescValueFinal" />
+
+        <TextView
+            android:id="@+id/tvStatusValueFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/detailActivityTextColor"
+            app:layout_constraintEnd_toEndOf="@+id/tvStatusFinal"
+            app:layout_constraintStart_toStartOf="@+id/tvStatusFinal"
+            app:layout_constraintTop_toBottomOf="@+id/tvStatusFinal"
+            tools:text="Completed" />
+
+        <TextView
+            android:id="@+id/tvDateValueFinal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/detailActivityTextColor"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitleDate"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvTitleDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDate"
+            tools:text="25 December 2023" />
+
+        <TextView
+            android:id="@+id/tvTitleDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/activity_detail_date"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitleFinalValue"
+            app:layout_constraintStart_toStartOf="@+id/tvTitleFinalValue"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleFinalValue" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

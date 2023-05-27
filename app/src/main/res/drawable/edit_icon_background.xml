@@ -1,0 +1,10 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/edit_icon_background_circle" />
+    <item
+        android:drawable="@drawable/baseline_edit_24"
+        android:gravity="center"
+        android:top="3dp"
+        android:left="3dp"
+        android:right="3dp"
+        android:bottom="3dp" />
+</layer-list>

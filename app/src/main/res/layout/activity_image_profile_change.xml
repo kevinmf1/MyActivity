@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/profile_background"
+    tools:context=".ui.activity.ImageProfileChangeActivity">
+
+    <ImageView
+        android:id="@+id/backProfilePictureEdit"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/back_icon_content_description"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/saveProfilePictureEdit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/save_icon_content_description"
+        android:src="@drawable/baseline_save_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/profile_picture_edit_title"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/backProfilePictureEdit"
+        app:layout_constraintEnd_toEndOf="@+id/profile_image_preview"
+        app:layout_constraintStart_toStartOf="@+id/profile_image_preview"
+        app:layout_constraintTop_toTopOf="@+id/backProfilePictureEdit" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image_preview"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="28dp"
+        tools:src="@drawable/ic_launcher_background"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backProfilePictureEdit" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image_preview">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/profile_background_bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/manImage1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_imageview"
+                    android:contentDescription="@string/profile_gender_picture_preview_content_description"
+                    android:padding="10dp"
+                    android:src="@drawable/man_pic1" />
+
+                <ImageView
+                    android:id="@+id/womanImage1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_imageview"
+                    android:contentDescription="@string/profile_gender_picture_preview_content_description"
+                    android:padding="10dp"
+                    android:src="@drawable/woman_pic1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/manImage2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_imageview"
+                    android:contentDescription="@string/profile_gender_picture_preview_content_description"
+                    android:padding="10dp"
+                    android:src="@drawable/man_pic2" />
+
+                <ImageView
+                    android:id="@+id/womanImage2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_imageview"
+                    android:contentDescription="@string/profile_gender_picture_preview_content_description"
+                    android:padding="10dp"
+                    android:src="@drawable/woman_pic2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/manImage3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_imageview_choose"
+                    android:contentDescription="@string/profile_gender_picture_preview_content_description"
+                    android:padding="10dp"
+                    android:src="@drawable/man_pic3" />
+
+                <ImageView
+                    android:id="@+id/womanImage3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_imageview"
+                    android:contentDescription="@string/profile_gender_picture_preview_content_description"
+                    android:padding="10dp"
+                    android:src="@drawable/woman_pic3" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/manImage4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_imageview"
+                    android:contentDescription="@string/profile_gender_picture_preview_content_description"
+                    android:padding="10dp"
+                    android:src="@drawable/man_pic4" />
+
+                <ImageView
+                    android:id="@+id/womanImage4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_imageview"
+                    android:contentDescription="@string/profile_gender_picture_preview_content_description"
+                    android:padding="10dp"
+                    android:src="@drawable/woman_pic4" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,119 @@
 <resources>
-    <string name="app_name">My Activity Today</string>
+    <string name="app_name">My Activity</string>
+    <string name="empty_data">Ups, there\'s no data to display :(</string>
+
+    <string name="today_activity">Today</string>
+    <string name="upcoming_activity">Upcoming</string>
+    <string name="late_activity">Late</string>
+    <string name="completed_activity">Completed</string>
+
+    <string name="activity_add_title">Add a new activity</string>
+    <string name="activity_edit_title">Edit an activity</string>
+    <string name="activity_done_title">Completed activity</string>
+
+    <string name="activity_name">Activity Name</string>
+    <string name="date_activity">Date Activity</string>
+    <string name="description_activity">Description Activity</string>
+    <string name="already_done">Already Done?</string>
+
+    <!--  Add Edit Activity  -->
+    <string name="required_title">Activity name cannot be empty</string>
+    <string name="required_date">Date cannot be empty</string>
+    <string name="required_start_time">Start time cannot be empty</string>
+    <string name="required_end_time">End time cannot be empty</string>
+    <string name="required_end_time_greater">End time must be greater than start time</string>
+    <string name="required_description">Description cannot be empty</string>
+
+    <string name="name_activity_hint">Name</string>
+    <string name="date_activity_hint">Date</string>
+    <string name="start_time_hint">Start Time</string>
+    <string name="end_time_hint">End Time</string>
+    <string name="description_activity_hint">Description</string>
+
+    <string name="submit">Submit</string>
+    <string name="strip">-</string>
+
+    <string name="delete_icon_content_description">For deleting items</string>
+    <string name="tabLayout_content_description">Navigate from 1 tab to another tab</string>
+    <string name="add_icon_content_description">For adding items</string>
+    <string name="late_icon_content_description">In case if you late, late icon would be show</string>
+    <string name="done_icon_content_description">In case if you done, this icon would be show</string>
+    <string name="date_icon_content_description">Show an due date from your activity</string>
+    <string name="back_icon_content_description">For back to previous page</string>
+    <string name="edit_icon_content_description">For editing items</string>
+    <string name="splash_icon_content_description">For splash screen</string>
+    <string name="profile_gender_picture_preview_content_description">For profile gender preview picture</string>
+    <string name="save_icon_content_description">For saving items</string>
+
+    <string name="name_main_title">Hello, %1$s!</string>
+    <string name="desc_main_subtitle">Good pace, keep it going!</string>
+
+    <!--  Box Main  -->
+    <string name="today_rectangle_stats">Today</string>
+    <string name="late_rectangle_stats">Late</string>
+    <string name="completed_rectangle_stats">Completed</string>
+    <string name="upcoming_rectangle_stats">Upcoming</string>
+    <string name="percentage_stats">%1$d%%</string>
+    <string name="today_detailed_uncompleted_stats">You have %1$d tasks left of %2$d to do.</string>
+    <string name="today_detailed_completed_stats">You have completed %1$d tasks</string>
+    <string name="today_detailed_completed_all_stats">You have completed all %1$d tasks</string>
+    <string name="today_detailed_late_stats">You must completed %1$d tasks.</string>
+    <string name="today_noTask_stats">You don\'t have task to do</string>
+    <string name="today_noTask_completed_stats">You don\'t have task that completed</string>
+    <string name="today_noTask_late_stats">You don\'t have task that late</string>
+
+    <string name="activity_detail_id">Activity Id</string>
+    <string name="activity_detail_name">Activity Name</string>
+    <string name="activity_detail_date">Date Activity</string>
+    <string name="activity_detail_duration">Activity Duration</string>
+    <string name="activity_detail_description">Description Activity</string>
+    <string name="activity_detail_status">Status</string>
+
+    <string name="activity_status_completed">Activity completed</string>
+    <string name="activity_status_uncompleted">Activity uncompleted</string>
+
+    <!--  Pop Up Confirmation  -->
+    <string name="confirmation_activity_title">Confirmation</string>
+    <string name="delete_activity_negative_button">No</string>
+    <string name="delete_activity_message">Are you sure want to delete this activity?</string>
+    <string name="delete_activity_positive_button">Yes</string>
+    <string name="delete_activity_success_message">Activity has been deleted</string>
+    <string name="activity_success_done_message">Activity has been completed</string>
+    <string name="activity_success_edit_message">Activity data successfully changed</string>
+    <string name="activity_success_add_message">Activity successfully added</string>
+
+    <!--  Settings Profile   -->
+    <string name="profile_title">Settings Profile</string>
+    <string name="profile_btnEdit">Edit</string>
+    <string name="profile_changeLanguageBtn">Change</string>
+    <string name="profile_changeProfileTitle">Change the profile</string>
+    <string name="profile_changeProfileSubtitle">Edit your profile</string>
+    <string name="profile_changeLanguageTitle">Language Settings</string>
+    <string name="profile_changeLanguageSubtitle">Make it as your language</string>
+    <string name="profile_changeModeBtnTitle">Settings the mode</string>
+    <string name="profile_changeModeBtnSubtitle">Turn on night mode</string>
+
+    <!--  Profile Edit  -->
+    <string name="profile_title_edit">Edit your profile</string>
+    <string name="profile_subtitle_edit">Basic Detail</string>
+    <string name="profile_name_title">Full Name</string>
+    <string name="profile_gender_title">Gender</string>
+    <string name="profile_gender_hint">Select your gender</string>
+    <string name="profile_gender_value_man">Man</string>
+    <string name="profile_gender_value_woman">Woman</string>
+    <string name="profile_date_birth_title">Date Birth</string>
+    <string name="profile_date_birth_hint">Your date birth</string>
+    <string name="profile_phone_title">Phone Number</string>
+    <string name="profile_phone_hint">Your phone number</string>
+    <string name="profile_address_title">Address</string>
+    <string name="profile_address_hint">Your address</string>
+    <string name="profile_btnSave">Save</string>
+    <string name="profile_btnCancel">Cancel</string>
+    <string name="profile_success_edit_message">Profile data successfully changed</string>
+    <string name="profile_save_message">Are you sure want to save this profile?</string>
+
+    <!--  Profile Picture Edit  -->
+    <string name="profile_picture_edit_title">Edit your picture</string>
+    <string name="profile_picture_save_message">Are you sure want to save this profile picture?</string>
+    <string name="profile_picture_success_edit_message">Profile picture successfully saved</string>
 </resources>

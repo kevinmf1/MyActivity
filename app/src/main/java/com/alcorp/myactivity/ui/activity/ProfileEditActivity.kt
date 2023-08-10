@@ -8,26 +8,27 @@ import android.text.InputFilter
 import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import com.alcorp.core.data.source.local.entity.ProfileEntity
+import com.alcorp.core.utils.intToBitmap
+import com.alcorp.myactivity.MainActivity
 import com.alcorp.myactivity.R
-import com.alcorp.myactivity.database.repository.ProfileEntity
-import com.alcorp.myactivity.database.repository.ProfileRepository
+import com.alcorp.myactivity.data.ProfileViewModel
 import com.alcorp.myactivity.databinding.ActivityProfileEditBinding
-import com.alcorp.myactivity.tools.intToBitmap
 import com.alcorp.myactivity.ui.activity.ImageProfileChangeActivity.Companion.EXTRA_PROFILE_ID
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.util.*
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.Calendar
 
+@AndroidEntryPoint
 class ProfileEditActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileEditBinding
-    private lateinit var profileRepository: ProfileRepository
     private lateinit var calendar: Calendar
     private var idProfile: Int = 0
     private var currentImage: Int = 0
+
+    private val profileViewModel: ProfileViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,6 @@ class ProfileEditActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initializeViews()
-        setupRepositories()
         setupObservers()
         setupListeners()
     }
@@ -44,12 +44,8 @@ class ProfileEditActivity : AppCompatActivity() {
         calendar = Calendar.getInstance()
     }
 
-    private fun setupRepositories() {
-        profileRepository = ProfileRepository(application)
-    }
-
     private fun setupObservers() {
-        profileRepository.getProfile().observe(this) { profile ->
+        profileViewModel.profile.observe(this) { profile ->
             profile?.let {
                 idProfile = it.id
                 binding.nameInputProfileField.setText(it.name)
@@ -141,13 +137,9 @@ class ProfileEditActivity : AppCompatActivity() {
             photo = currentImage
         )
 
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                profileRepository.update(profileData)
-                showToast(R.string.profile_success_edit_message)
-            }
-            navigateToMainActivity()
-        }
+        profileViewModel.update(profileData)
+        showToast(R.string.profile_success_edit_message)
+        navigateToMainActivity()
     }
 
     private fun showToast(messageResId: Int) {

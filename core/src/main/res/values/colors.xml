@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#8294C4</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="black_70percent">#4D4D4D</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_total">#FFFFFF</color>
+
+    <color name="btnLightModeColor">#3C486B</color>
+    <color name="detailActivityTextColor">#212A3E</color>
+    <color name="mainGreetingTitle">#000000</color>
+
+    <color name="card_background">#B0DAFF</color>
+    <color name="profile_background">#FFF</color>
+    <color name="profile_background_bottom">#569DAA</color>
+    <color name="profile_text_setting">#025464</color>
+</resources>

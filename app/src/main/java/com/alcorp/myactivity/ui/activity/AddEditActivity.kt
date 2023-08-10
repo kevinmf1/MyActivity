@@ -8,56 +8,52 @@ import android.view.View
 import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import com.alcorp.core.data.source.local.entity.ActivityEntity
+import com.alcorp.myactivity.MainActivity
 import com.alcorp.myactivity.R
-import com.alcorp.myactivity.database.repository.ActivityEntity
-import com.alcorp.myactivity.database.repository.ActivityRepository
+import com.alcorp.myactivity.data.ActivityViewModel
 import com.alcorp.myactivity.databinding.ActivityAddEditBinding
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 import kotlin.properties.Delegates
 
+@AndroidEntryPoint
 class AddEditActivity : AppCompatActivity() {
 
-    private lateinit var activityRepository: ActivityRepository
     private var activityId by Delegates.notNull<Int>()
     private val calendar = Calendar.getInstance()
 
     private lateinit var binding: ActivityAddEditBinding
+    private val activityViewModel: ActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupActivityRepository()
         setupActivityDetails()
         setupActionListeners()
     }
 
-    private fun setupActivityRepository() {
-        activityRepository = ActivityRepository(application)
-    }
-
     private fun setupActivityDetails() {
-        activityId = intent.getIntExtra(EXTRA_ID, 0)
+        activityId = intent.getIntExtra("id", 0)
         if (activityId != 0) {
             binding.addEditTitle.text = getString(R.string.activity_edit_title)
             binding.switchDesc.visibility = View.VISIBLE
             binding.switchDoneOrNot.visibility = View.VISIBLE
             binding.btnDeleteActivity.visibility = View.VISIBLE
 
-            binding.activityNameField.setText(intent.getStringExtra(EXTRA_TITLE))
-            binding.dateActivityField.setText(intent.getStringExtra(EXTRA_DATE))
-            binding.descriptionActivityField.setText(intent.getStringExtra(EXTRA_DESC))
-            binding.startTimeField.setText(intent.getStringExtra(EXTRA_TIME_START))
-            binding.endTimeField.setText(intent.getStringExtra(EXTRA_TIME_END))
+            binding.activityNameField.setText(intent.getStringExtra("title"))
+            binding.dateActivityField.setText(intent.getStringExtra("date"))
+            binding.descriptionActivityField.setText(intent.getStringExtra("desc"))
+            binding.startTimeField.setText(intent.getStringExtra("timeStart"))
+            binding.endTimeField.setText(intent.getStringExtra("timeEnd"))
         } else {
             binding.switchDesc.visibility = View.GONE
             binding.switchDoneOrNot.visibility = View.GONE
@@ -111,18 +107,14 @@ class AddEditActivity : AppCompatActivity() {
     }
 
     private fun deleteActivity() {
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                activityRepository.deleteActivityById(activityId)
-            }
-            Toast.makeText(
-                this@AddEditActivity,
-                getString(R.string.delete_activity_success_message),
-                Toast.LENGTH_SHORT
-            ).show()
-            startActivity(Intent(this@AddEditActivity, MainActivity::class.java))
-            finishAffinity()
-        }
+        activityViewModel.deleteById(activityId)
+        Toast.makeText(
+            this@AddEditActivity,
+            getString(R.string.delete_activity_success_message),
+            Toast.LENGTH_SHORT
+        ).show()
+        startActivity(Intent(this@AddEditActivity, MainActivity::class.java))
+        finishAffinity()
     }
 
     private fun showDatePickerDialog() {
@@ -207,18 +199,23 @@ class AddEditActivity : AppCompatActivity() {
             title.isBlank() -> {
                 showErrorAndToast(binding.activityNameField, R.string.required_title)
             }
+
             date.isBlank() -> {
                 showErrorAndToast(binding.dateActivityField, R.string.required_date)
             }
+
             startTime.isBlank() -> {
                 showErrorAndToast(binding.startTimeField, R.string.required_start_time)
             }
+
             endTime.isBlank() -> {
                 showErrorAndToast(binding.endTimeField, R.string.required_end_time)
             }
+
             desc.isBlank() -> {
                 showErrorAndToast(binding.descriptionActivityField, R.string.required_description)
             }
+
             else -> {
                 saveActivity(
                     title,
@@ -255,21 +252,17 @@ class AddEditActivity : AppCompatActivity() {
             isDone = isDone
         )
 
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                if (activityId != 0 && !isDone ) {
-                    activityRepository.update(activity)
-                    showToast(R.string.activity_success_edit_message)
-                } else if (activityId != 0 && isDone) {
-                    activityRepository.update(activity)
-                    showToast(R.string.activity_success_done_message)
-                } else {
-                    activityRepository.insert(activity)
-                    showToast(R.string.activity_success_add_message)
-                }
-            }
-            navigateToMainActivity()
+        if (activityId != 0 && !isDone) {
+            activityViewModel.update(activity)
+            showToast(R.string.activity_success_edit_message)
+        } else if (activityId != 0 && isDone) {
+            activityViewModel.update(activity)
+            showToast(R.string.activity_success_done_message)
+        } else {
+            activityViewModel.insert(activity)
+            showToast(R.string.activity_success_add_message)
         }
+        navigateToMainActivity()
     }
 
     private fun showToast(messageResId: Int) {
@@ -284,16 +277,6 @@ class AddEditActivity : AppCompatActivity() {
             startActivity(Intent(this@AddEditActivity, MainActivity::class.java))
             finishAffinity()
         }
-    }
-
-    companion object {
-        const val EXTRA_ID = "extra_id"
-        const val EXTRA_TITLE = "extra_title"
-        const val EXTRA_DATE = "extra_date"
-        const val EXTRA_TIME_START = "extra_time_start"
-        const val EXTRA_TIME_END = "extra_time_end"
-        const val EXTRA_DESC = "extra_desc"
-        const val EXTRA_ISDONE = "extra_isdone"
     }
 
 }

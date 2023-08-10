@@ -3,20 +3,19 @@ package com.alcorp.myactivity.ui.activity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import com.alcorp.core.utils.intToBitmap
 import com.alcorp.myactivity.R
-import com.alcorp.myactivity.database.repository.ProfileRepository
+import com.alcorp.myactivity.data.ProfileViewModel
 import com.alcorp.myactivity.databinding.ActivityImageProfileChangeBinding
-import com.alcorp.myactivity.tools.intToBitmap
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ImageProfileChangeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityImageProfileChangeBinding
-    private lateinit var profileRepository: ProfileRepository
+    private val profileViewModel: ProfileViewModel by viewModels()
     private lateinit var profileId: String
     private var currentImageResId: Int = 0
 
@@ -25,22 +24,12 @@ class ImageProfileChangeActivity : AppCompatActivity() {
         binding = ActivityImageProfileChangeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initializeViews()
-        setupRepositories()
         setupObservers()
         setupListeners()
     }
 
-    private fun initializeViews() {
-        profileRepository = ProfileRepository(application)
-    }
-
-    private fun setupRepositories() {
-        profileRepository = ProfileRepository(application)
-    }
-
     private fun setupObservers() {
-        profileRepository.getProfile().observe(this) { profile ->
+        profileViewModel.profile.observe(this) { profile ->
             profile?.let {
                 binding.profileImagePreview.setImageBitmap(intToBitmap(this, it.photo ?: 0))
             }
@@ -85,11 +74,7 @@ class ImageProfileChangeActivity : AppCompatActivity() {
     }
 
     private fun savePicture() {
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                profileRepository.saveImageById(profileId.toInt(), currentImageResId)
-            }
-        }
+        profileViewModel.saveImageById(profileId.toInt(), currentImageResId)
         Toast.makeText(
             this,
             getString(R.string.profile_picture_success_edit_message),

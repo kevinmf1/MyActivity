@@ -115,4 +115,8 @@
     <string name="profile_picture_edit_title">Ubah foto anda</string>
     <string name="profile_picture_save_message">Apakah kamu ingin menyimpan foto ini?</string>
     <string name="profile_picture_success_edit_message">Foto sukses disimpan</string>
+
+    <string name="sign_in_reminder">Sign in to backup your data</string>
+    <string name="logout">Logout</string>
+    <string name="web_id">986544142905-rsm2f8b0e5ks67tot418t35n9tlk96h1.apps.googleusercontent.com</string>
 </resources>

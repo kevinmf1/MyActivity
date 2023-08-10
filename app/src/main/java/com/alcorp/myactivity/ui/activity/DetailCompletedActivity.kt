@@ -3,42 +3,38 @@ package com.alcorp.myactivity.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import com.alcorp.core.utils.dateToString
+import com.alcorp.myactivity.MainActivity
 import com.alcorp.myactivity.R
-import com.alcorp.myactivity.database.repository.ActivityRepository
+import com.alcorp.myactivity.data.ActivityViewModel
 import com.alcorp.myactivity.databinding.ActivityDetailCompletedBinding
-import com.alcorp.myactivity.tools.dateToString
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class DetailCompletedActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailCompletedBinding
-    private lateinit var activityRepository: ActivityRepository
+    private val activityViewModel: ActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailCompletedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupActivityRepository()
         setupActivityDetails()
         setupActionListeners()
     }
 
-    private fun setupActivityRepository() {
-        activityRepository = ActivityRepository(application)
-    }
-
     private fun setupActivityDetails() {
-        val id = intent.getIntExtra(EXTRA_ID, 0)
-        val title = intent.getStringExtra(EXTRA_TITLE)
-        val date = dateToString(intent.getStringExtra(EXTRA_DATE))
-        val timeStart = intent.getStringExtra(EXTRA_TIME_START)
-        val timeEnd = intent.getStringExtra(EXTRA_TIME_END)
-        val desc = intent.getStringExtra(EXTRA_DESC)
-        val isDone = intent.getBooleanExtra(EXTRA_ISDONE, false)
+        val id = intent.getIntExtra("id", 0)
+        val title = intent.getStringExtra("title")
+        val date = dateToString(intent.getStringExtra("date"))
+        val timeStart = intent.getStringExtra("timeStart")
+        val timeEnd = intent.getStringExtra("timeEnd")
+        val desc = intent.getStringExtra("desc")
+        val isDone = intent.getBooleanExtra("isDone", false)
 
         binding.tvTitleIdValueFinal.text = id.toString()
         binding.tvTitleFinalValue.text = title
@@ -83,11 +79,7 @@ class DetailCompletedActivity : AppCompatActivity() {
     private fun deleteActivityAndNavigateToMainScreen() {
         val activityId = binding.tvTitleIdValueFinal.text.toString().toInt()
 
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                activityRepository.deleteActivityById(activityId)
-            }
-        }
+        activityViewModel.deleteById(activityId)
 
         Toast.makeText(
             this,
@@ -97,15 +89,5 @@ class DetailCompletedActivity : AppCompatActivity() {
 
         startActivity(Intent(this, MainActivity::class.java))
         finishAffinity()
-    }
-
-    companion object {
-        const val EXTRA_ID = "extra_id"
-        const val EXTRA_TITLE = "extra_title"
-        const val EXTRA_DATE = "extra_date"
-        const val EXTRA_TIME_START = "extra_time_start"
-        const val EXTRA_TIME_END = "extra_time_end"
-        const val EXTRA_DESC = "extra_desc"
-        const val EXTRA_ISDONE = "extra_isdone"
     }
 }

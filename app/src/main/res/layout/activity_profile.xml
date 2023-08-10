@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.ProfileActivity">
 
+
     <ImageView
         android:id="@+id/settingBackBtn"
         android:layout_width="34dp"
@@ -66,15 +67,49 @@
         app:layout_constraintEnd_toEndOf="@+id/lineBetween"
         app:layout_constraintTop_toBottomOf="@+id/lineBetween" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
+    <Switch
         android:id="@+id/nightModeSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="26dp"
         app:layout_constraintEnd_toEndOf="@+id/changeLanguageBtn"
         app:layout_constraintTop_toBottomOf="@+id/changeLanguageBtn" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/signInReminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/sign_in_reminder"
+        app:layout_constraintBottom_toTopOf="@+id/signInButton"
+        app:layout_constraintEnd_toEndOf="@+id/signInButton"
+        app:layout_constraintStart_toStartOf="@+id/signInButton" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/signInButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logoutBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="@string/logout"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/signInReminder"
+        app:layout_constraintEnd_toEndOf="@+id/signInButton"
+        app:layout_constraintStart_toStartOf="@+id/signInButton"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -94,7 +129,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/profile_changeModeBtnSubtitle" />
-
 
     </LinearLayout>
 
